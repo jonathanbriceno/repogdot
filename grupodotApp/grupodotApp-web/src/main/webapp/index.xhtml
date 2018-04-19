@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+<h:form id="form">
+   <p:growl id="growl" />
+<p:panel id="pnl">
+
+    <p:inputNumber id="firstname" value="#{cotizacionMB.valorCotizacion}" 
+              required="true" label="valCotizacion">
+                <f:validateLength minimum="1" />
+            </p:inputNumber>
+    
+  <p:commandButton id ="saveBtn" value="Generar Cotizacion" update=":form:pnl growl" 
+    actionListener="#{cotizacionMB.calcularCotizacion}"  />  
+  <p>  
+  </p>
+  <h:outputLabel for="socio" value="Socio: "  rendered ="#{cotizacionMB.renderizarCandidato}"/>
+  <h:outputText id = "socio" value="#{cotizacionMB.nombreSocio}" rendered ="#{cotizacionMB.renderizarCandidato}"  />
+  <p>  
+  </p>  
+  <h:outputLabel for="cuota" value="Cuota Mensual: "  rendered ="#{cotizacionMB.renderizarCandidato}"/>
+  <h:outputText id = "cuota" value="#{cotizacionMB.nombreSocio}" rendered ="#{cotizacionMB.renderizarCandidato}"  />
+   <p>  
+  </p>  
+  <h:outputLabel for="pago" value="Pago Total: "  rendered ="#{cotizacionMB.renderizarCandidato}"/>
+  <h:outputText id = "pago" value="#{cotizacionMB.nombreSocio}" rendered ="#{cotizacionMB.renderizarCandidato}"  />
+   <p>  
+  </p>  
+  <h:outputLabel for="tasa" value="Tasa Interes: "  rendered ="#{cotizacionMB.renderizarCandidato}"/>
+  <h:outputText id = "tasa" value="#{cotizacionMB.nombreSocio}" rendered ="#{cotizacionMB.renderizarCandidato}"  />
+</p:panel>
+<p:blockUI block="pnl" trigger="saveBtn" />
+</h:form>
+
+</h:body>
+</html>
